@@ -18,15 +18,15 @@ public class Vehicle {
     }
 
     public String toString() {
-        String description = "This is " + (manned ? "a manned " : "an unmanned ") + type +
-                ". Driven by a " + engineType + " engine. ";
+        StringBuilder sb = new StringBuilder("This is " + (manned ? "a manned " : "an unmanned ") + type +
+                ". Driven by a " + engineType + " engine. ");
 
         if (manned) {
-            description += "It is operated by a crew of " + Integer.toString(crew) +  '.';
+            sb.append("It is operated by a crew of ").append(crew).append('.');
         }
-        description += " It carries " + Integer.toString(passengerCapacity) + " people. With a full tank (" +
-                Float.toString(fuelCapacity) + " litres) it can travel up to " + Integer.toString(range) + " kilometers.";
-        return description;
+        sb.append(" It carries ").append(passengerCapacity).append(" people. With a full tank (")
+                .append(fuelCapacity).append(" litres) it can travel up to ").append(range).append(" kilometers.");
+        return sb.toString();
     }
 
     public void calculateEfficiency() {
@@ -41,8 +41,8 @@ public class Vehicle {
 
     public void ratio() {
         if (manned) {
-            int ratio = this.passengerCapacity / this.crew;
-            System.out.println("For every crew member there are " + ratio + " passengers.");
+            float ratio = (float)this.passengerCapacity / this.crew;
+            System.out.println("For every crew member there are " + Float.toString(ratio) + " passengers.");
             return;
         }
         System.out.println("This is an unmanned vehicle, hence there are only passengers.");
