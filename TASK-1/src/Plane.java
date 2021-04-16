@@ -15,6 +15,20 @@ public class Plane extends Vehicle{
         this.maxAltitude = maxAltitude;
     }
 
+    //overloaded constructor to make testing easier
+    public Plane(String[] args) {
+        super(args[0], args[1], Float.parseFloat(args[2]), Boolean.parseBoolean(args[3]), Integer.parseInt(args[4]),
+                Integer.parseInt(args[5]), Integer.parseInt(args[6]));
+        this.name = args[7];
+        this.purpose = args[8];
+        this.wingSpan = Float.parseFloat(args[9]);
+        this.height = Float.parseFloat(args[10]);
+        this.length = Float.parseFloat(args[11]);
+        this.mass = Float.parseFloat(args[12]);
+        this.maxAltitude = Integer.parseInt(args[13]);
+
+    }
+
     public String getName() {
         return name;
     }

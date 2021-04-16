@@ -31,7 +31,7 @@ public class Vehicle {
 
     public void calculateEfficiency() {
         float eff = fuelCapacity / range;
-        System.out.println("One liter of fuel is enough to travel " + Float.toString(eff) + "kilometers.");
+        System.out.println("One liter of fuel is enough to travel " + Float.toString(eff) + " kilometers.");
     }
 
     public void autonomize() {
