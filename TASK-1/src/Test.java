@@ -21,9 +21,18 @@ public class Test {
 
         for(String[] elem : argsArray) {
             Plane p = new Plane(elem);
-            System.out.println(Arrays.toString(elem));
-            System.out.println(p.toString());
-            p.calculateEfficiency();
+//            System.out.println(Arrays.toString(elem));
+            System.out.println(p);
+
+            p.setPassengerCapacity(10);
+            p.setMaxAltitude(5000);
+            p.autonomize();
+
+            if(p.getPassengerCapacity() != 10 || p.getMaxAltitude() != 5000 || p.getCrew() != 0 || p.isManned()) {
+                System.out.println("Error! Malfunction of setter or getter methods");
+            }
+
+            System.out.println(p);
         }
     }
 }

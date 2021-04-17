@@ -17,6 +17,17 @@ public class Vehicle {
         this.range = range > 0 ? range : 1;
     }
 
+//    @Override
+//    public boolean equals(Object obj) {
+//        if(this == obj)
+//            return true;
+//
+//        if(obj == null || getClass() != obj.getClass())
+//            return false;
+//    }
+
+
+    @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("This is " + (manned ? "a manned " : "an unmanned ") + type +
                 ". Driven by a " + engineType + " engine. ");
@@ -35,8 +46,8 @@ public class Vehicle {
     }
 
     public void autonomize() {
-        this.crew = 0;
-        this.manned = false;
+        this.setCrew(0);
+        this.setManned(false);
     }
 
     public void ratio() {
