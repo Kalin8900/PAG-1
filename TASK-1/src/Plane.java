@@ -17,7 +17,7 @@ public class Plane extends Vehicle{
         this.maxAltitude = maxAltitude;
     }
 
-    //overloaded constructor to make testing easier
+    //second constructor for testing
     public Plane(String[] args) {
         super(args[0], args[1], Float.parseFloat(args[2]), Boolean.parseBoolean(args[3]), Integer.parseInt(args[4]),
                 Integer.parseInt(args[5]), Integer.parseInt(args[6]));
@@ -28,7 +28,6 @@ public class Plane extends Vehicle{
         this.length = Float.parseFloat(args[11]);
         this.mass = Float.parseFloat(args[12]);
         this.maxAltitude = Integer.parseInt(args[13]);
-
     }
 
     @Override
@@ -66,6 +65,8 @@ public class Plane extends Vehicle{
     }
 
     public void setWingSpan(float wingSpan) {
+        if(wingSpan <= 0)
+            throw new IllegalArgumentException("Wing span must be > 0");
         this.wingSpan = wingSpan;
     }
 
@@ -74,6 +75,8 @@ public class Plane extends Vehicle{
     }
 
     public void setHeight(float height) {
+        if(height <= 0)
+            throw new IllegalArgumentException("Height must be > 0");
         this.height = height;
     }
 
@@ -82,6 +85,8 @@ public class Plane extends Vehicle{
     }
 
     public void setLength(float length) {
+        if(length <= 0)
+            throw new IllegalArgumentException("Length must be > 0");
         this.length = length;
     }
 
@@ -90,6 +95,8 @@ public class Plane extends Vehicle{
     }
 
     public void setMass(float mass) {
+        if(mass <= 0)
+            throw new IllegalArgumentException("Mass must be > 0");
         this.mass = mass;
     }
 
@@ -98,6 +105,8 @@ public class Plane extends Vehicle{
     }
 
     public void setMaxAltitude(int maxAltitude) {
+        if(maxAltitude <= 0)
+            throw new IllegalArgumentException("Max altitude must be > 0");
         this.maxAltitude = maxAltitude;
     }
 }
