@@ -1,4 +1,4 @@
-import org.jetbrains.annotations.NotNull;
+//import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Test {
 
-    private static ArrayList<String[]> readDataFromFile(@NotNull String path) {
+    private static ArrayList<String[]> readDataFromFile(String path) {
         if (path.isEmpty())
             throw new InvalidPathException(path, "Path length must be greater than 0");
         var argsArr = new ArrayList<String[]>();
