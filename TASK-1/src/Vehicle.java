@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Vehicle {
 
     private String type, engineType;
@@ -17,14 +19,19 @@ public class Vehicle {
         this.range = range > 0 ? range : 1;
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        if(this == obj)
-//            return true;
-//
-//        if(obj == null || getClass() != obj.getClass())
-//            return false;
-//    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Vehicle vehicle = (Vehicle) o;
+        return Float.compare(vehicle.getFuelCapacity(), getFuelCapacity()) == 0 && getCrew() == vehicle.getCrew() && getPassengerCapacity() == vehicle.getPassengerCapacity() && getRange() == vehicle.getRange() && isManned() == vehicle.isManned() && getType().equals(vehicle.getType()) && getEngineType().equals(vehicle.getEngineType());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getType(), getEngineType(), getFuelCapacity(), getCrew(), getPassengerCapacity(), getRange(), isManned());
+    }
+
 
 
     @Override

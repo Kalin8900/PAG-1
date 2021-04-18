@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -23,13 +22,16 @@ public class Test {
             Plane p = new Plane(elem);
 //            System.out.println(Arrays.toString(elem));
             System.out.println(p);
-
             p.setPassengerCapacity(10);
             p.setMaxAltitude(5000);
             p.autonomize();
-
-            if(p.getPassengerCapacity() != 10 || p.getMaxAltitude() != 5000 || p.getCrew() != 0 || p.isManned()) {
+            if(p.getPassengerCapacity() != 10 || p.getMaxAltitude() != 5000 || p.getCrew() != 0 || p.isManned())
                 System.out.println("Error! Malfunction of setter or getter methods");
+
+            Plane pTwo = new Plane(elem);
+
+            if(!p.equals(pTwo)) {
+                System.out.println("Error! Malfunction of .equals() method");
             }
 
             System.out.println(p);

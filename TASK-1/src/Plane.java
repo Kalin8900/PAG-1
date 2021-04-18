@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Plane extends Vehicle{
     private String name, purpose;
     private float wingSpan, height, length, mass;
@@ -27,6 +29,20 @@ public class Plane extends Vehicle{
         this.mass = Float.parseFloat(args[12]);
         this.maxAltitude = Integer.parseInt(args[13]);
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Plane plane = (Plane) o;
+        return Float.compare(plane.getWingSpan(), getWingSpan()) == 0 && Float.compare(plane.getHeight(), getHeight()) == 0 && Float.compare(plane.getLength(), getLength()) == 0 && Float.compare(plane.getMass(), getMass()) == 0 && getMaxAltitude() == plane.getMaxAltitude() && getName().equals(plane.getName()) && getPurpose().equals(plane.getPurpose());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), getName(), getPurpose(), getWingSpan(), getHeight(), getLength(), getMass(), getMaxAltitude());
     }
 
     public String getName() {
