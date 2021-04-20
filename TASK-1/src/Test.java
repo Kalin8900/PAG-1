@@ -27,12 +27,11 @@ public class Test {
             System.out.println("Error occurred when loading the file from path " + path);
             e.printStackTrace();
         }
-
         return argsArr;
     }
 
     public static void main(String[] args) {
-        var path = System.getProperty("user.dir") + "/data/data.txt";
+        var path = System.getProperty("user.dir") + "/TASK-1/data/data.txt";
         ArrayList<String[]> argsArr = null;
         try {
             argsArr = readDataFromFile(path.trim());
@@ -68,7 +67,7 @@ public class Test {
                     throw new RuntimeException("Couldn't init Plane Class");
 
                 System.out.println(p);
-                System.out.println(p.toString());
+//                System.out.println(p.toString());
 
                 try {
                     p.setMaxAltitude(-200);
@@ -87,6 +86,9 @@ public class Test {
 
                 if (!eqFirst.equals(eqSecond))
                     throw new RuntimeException("Malfunction of .equals() method");
+
+                if(eqFirst.hashCode() == eqSecond.hashCode())
+                    System.out.println("Hashcode of a Plane object: " + eqFirst.hashCode());
 
                 ++cnt;
             } catch (Exception e) {
