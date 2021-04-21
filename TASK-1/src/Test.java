@@ -31,7 +31,7 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        var path = System.getProperty("user.dir") + "/TASK-1/data/data.txt";
+        var path = System.getProperty("user.dir") + "/data/data.txt";
         ArrayList<String[]> argsArr = null;
         try {
             argsArr = readDataFromFile(path.trim());
