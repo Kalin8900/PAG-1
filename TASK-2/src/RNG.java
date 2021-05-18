@@ -7,6 +7,16 @@ public class RNG {
     private int target;
 
     public RNG(int max, int n, int s) {
+
+        if(s > max || s < 0)
+            throw new IllegalArgumentException("Stop number must be a positive number less than Max");
+
+        if(max <= 0)
+            throw new IllegalArgumentException("Max must be positive");
+
+        if(n < 0)
+            throw new IllegalArgumentException("The amount of values to print must be a positive number");
+
         this.max = max;
         this.n = n;
         this.target = s;
@@ -25,34 +35,38 @@ public class RNG {
         return Objects.hash(getMax(), getN(), getTarget());
     }
 
-    public ArrayList<int>() generate {
+    public ArrayList<Integer> generate() {
         Random rand = new Random();
-        var numbers = new ArrayList<int>();
-        for(int i = 0; i < this.n; ++i) {
-            int cur = rand.nextInt(this.max);
+        var numbers = new ArrayList<Integer>();
+        var cur = rand.nextInt(this.max);
+        numbers.add(cur);
+        while(cur != this.target) {
+            cur = rand.nextInt(this.max);
             numbers.add(cur);
-            if (cur == this.target)
-                break;
         }
 
         return numbers;
     }
 
     public void out() {
-        var arr = this.generate()
+        var arr = this.generate();
 
-        int amount = this.n > arr.size() ? arr.size() : this.n;
+        int amount = Math.min(this.n, arr.size());
 
         for (int i = 0; i < amount; ++i)
-            System.out.println(arr[i]);
-        for (int i = arr.size(); i > arr.size() - amount; --i)
-            System.out.println(arr[i]);
+            System.out.print(arr.get(i).toString() + ' ');
 
-        Set<T> set = new LinkedHashSet<>();
+        System.out.println(' ');
+
+        for (int i = arr.size() - 1; i > arr.size() - amount - 1; --i)
+            System.out.print(arr.get(i).toString() + ' ');
+
+        System.out.println(' ');
+
+        Set<Integer> set = new TreeSet<>();
         set.addAll(arr);
-        Collections.sort(set);
-        for (const var elem : set)
-            System.out.println(elem);
+        for (var elem : set)
+            System.out.print(elem.toString() + ' ');
     }
 
     public int getMax() {
