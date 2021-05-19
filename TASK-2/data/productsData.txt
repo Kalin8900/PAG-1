@@ -1,0 +1,7 @@
+Piwo 2.79
+Oliwka 0.50
+Tomato 3
+Gorzała 23.50
+VanillaHajs 49.90
+Chleb 2
+Czekolada 4

@@ -38,12 +38,11 @@ public class RNG {
     public ArrayList<Integer> generate() {
         Random rand = new Random();
         var numbers = new ArrayList<Integer>();
-        var cur = rand.nextInt(this.max);
-        numbers.add(cur);
-        while(cur != this.target) {
+        int cur;
+        do {
             cur = rand.nextInt(this.max);
             numbers.add(cur);
-        }
+        } while(cur != this.target);
 
         return numbers;
     }
@@ -53,20 +52,30 @@ public class RNG {
 
         int amount = Math.min(this.n, arr.size());
 
+        System.out.print("Raw: ");
+        for (var elem : arr)
+            System.out.print(elem.toString() + ' ');
+
+        System.out.println(' ');
+
+        System.out.print("From start: ");
         for (int i = 0; i < amount; ++i)
             System.out.print(arr.get(i).toString() + ' ');
 
         System.out.println(' ');
 
+        System.out.print("From end: ");
         for (int i = arr.size() - 1; i > arr.size() - amount - 1; --i)
             System.out.print(arr.get(i).toString() + ' ');
 
         System.out.println(' ');
 
-        Set<Integer> set = new TreeSet<>();
-        set.addAll(arr);
+        Set<Integer> set = new TreeSet<>(arr);
+        System.out.print("Sorted, without duplicates: ");
         for (var elem : set)
             System.out.print(elem.toString() + ' ');
+
+        System.out.println(' ');
     }
 
     public int getMax() {
