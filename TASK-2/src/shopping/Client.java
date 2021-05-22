@@ -11,11 +11,23 @@ public class Client {
         this.basket = basket;
     }
 
+    @Override
+    public String toString() {
+        return "Client: " + '\n' +
+                "surname: " + surname + '\n' +
+                "basket: " + basket + '\n';
+    }
+
+    public Client(String surname){
+        this.surname = surname;
+        this.basket = null;
+    }
+
     public void serve() {
         float total = 0;
         System.out.println("Items:");
         for (var elem : basket.getProducts()) {
-            System.out.print(elem.toString());
+            System.out.print(elem.toString() + ' ');
             total += elem.getPrice();
         }
         System.out.println("Total: ");

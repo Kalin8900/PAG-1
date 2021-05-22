@@ -6,8 +6,8 @@ import java.util.Objects;
 public class Basket {
     private ArrayDeque<ProductInBasket> products;
 
-    public Basket(ArrayDeque<ProductInBasket> ps) {
-        this.products = ps;
+    public Basket() {
+        products = new ArrayDeque<ProductInBasket>();
     }
 
     @Override
@@ -16,11 +16,11 @@ public class Basket {
     }
 
     public void giveth(ProductInBasket p) {
-        this.products.push(p);
+        products.push(p);
     }
 
     public void takethAway() {
-        this.products.pop();
+        products.pop();
     }
 
     @Override
