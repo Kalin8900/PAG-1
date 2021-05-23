@@ -28,10 +28,10 @@ public class Shop {
     public void generateBaskets() {
         Random rand = new Random();
         for (var elem : clients) {
-            int types = rand.nextInt(10);
+            int types = rand.nextInt(9) + 1; //to make sure no empty baskets are generated
             Basket b = new Basket();
             for (int i = 0; i < types; ++i) {
-                ProductInBasket p = new ProductInBasket(products.get(rand.nextInt(products.size() - 1)), rand.nextInt(100));
+                ProductInBasket p = new ProductInBasket(products.get(rand.nextInt(products.size() - 1)), rand.nextInt(99) + 1);
                 b.giveth(p);
             }
             elem.setBasket(b);
@@ -43,17 +43,9 @@ public class Shop {
     }
 
     public void serve() {
-//        for (var elem : queue) {
-//            System.out.println(elem.getBasket());
-//            float total = 0;
-//            for (var product : elem.getBasket().getProducts()) {
-//                total += product.getPrice();
-//            }
-//            System.out.println(elem.getSurname() + "'s total: " + total);
-//            System.out.println(' ');
-//        }
         while (!queue.isEmpty()) {
             var cur = queue.remove();
+            System.out.println(cur.getSurname() + ':');
             System.out.println(cur.getBasket());
             float total = 0;
             for (var product : cur.getBasket().getProducts()) {
