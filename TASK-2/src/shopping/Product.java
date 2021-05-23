@@ -8,11 +8,18 @@ public class Product {
     private float price;
 
     public Product(String name, float price) {
+
+        if(price < 0)
+            throw new IllegalArgumentException("Price must be a positive value");
+
         this.name = name;
         this.price = price;
     }
 
     public Product(String[] args) {
+        if(args[1] < 0)
+            throw new IllegalArgumentException("Price must be a positive value");
+
         this.name = args[0];
         this.price = Float.parseFloat(args[1]);
     }
