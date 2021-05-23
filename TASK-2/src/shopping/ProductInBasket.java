@@ -18,7 +18,7 @@ public class ProductInBasket extends Product{
 
     @Override
     public String toString() {
-        return  getName() + ": " + getPrice()  + ' ' + quantity;
+        return  getName() + ": " + getPrice()  + " pln times " + quantity;
     }
 
     @Override

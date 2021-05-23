@@ -32,10 +32,13 @@ public class Test {
     }
 
     public static void main(String[] args) {
-//        var rng = new RNG(50, 5, 15);
-//
-//        rng.out();
+        var rng = new RNG(100, 5, 15);
 
+        System.out.println("RNG: ");
+        rng.out();
+
+
+        System.out.println("\nShop: ");
         var productsPath = System.getProperty("user.dir") + "/data/productsData.txt";
         var clientsPath = System.getProperty("user.dir") + "/data/clientsData.txt";
 
