@@ -45,14 +45,15 @@ public class Shop {
     public void serve() {
         while (!queue.isEmpty()) {
             var cur = queue.remove();
-            System.out.println(cur.getSurname() + ':');
-            System.out.println(cur.getBasket());
-            float total = 0;
-            for (var product : cur.getBasket().getProducts()) {
-                total += product.getPrice() * product.getQuantity();
-            }
-            System.out.println(cur.getSurname() + "'s total: " + total);
-            System.out.println(' ');
+//            System.out.println(cur.getSurname() + ':');
+//            System.out.println(cur.getBasket());
+//            float total = 0;
+//            for (var product : cur.getBasket().getProducts()) {
+//                total += product.getPrice() * product.getQuantity();
+//            }
+//            System.out.println(cur.getSurname() + "'s total: " + total);
+//            System.out.println(' ');
+            cur.serveClient();
         }
     }
 

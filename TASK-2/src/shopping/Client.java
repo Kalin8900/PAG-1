@@ -23,15 +23,14 @@ public class Client {
         this.basket = null;
     }
 
-    public void serve() {
+    public void serveClient() {
         float total = 0;
-        System.out.println("Items:");
+        System.out.println(getSurname() + ":");
         for (var elem : basket.getProducts()) {
             System.out.print(elem.toString() + ' ');
-            total += elem.getPrice();
+            total += elem.getPrice() * elem.getQuantity();
         }
-        System.out.println("Total: ");
-        System.out.print(total);
+        System.out.println('\n' + getSurname() + "'s total: " + total + '\n');
     }
 
     @Override

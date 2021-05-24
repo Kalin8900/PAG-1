@@ -17,7 +17,7 @@ public class Product {
     }
 
     public Product(String[] args) {
-        if(args[1] < 0)
+        if(Float.parseFloat(args[1]) < 0)
             throw new IllegalArgumentException("Price must be a positive value");
 
         this.name = args[0];
